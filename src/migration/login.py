@@ -68,7 +68,15 @@ def validate_format(data):
 
 
 if __name__ == "__main__":
-    config_dict = load_config_from_file("./config.json")
+    try:
+        config_dict = load_config_from_file("./config.json")
+    except Exception as e:
+        print("Failed to load config.json")
+        print(e)
+        print("Creating new config.json")
+        config_dict = {}
+        config_dict["keycloak"] = {}
+        config_dict["tks"] = {}
 
 
     Login_TARGET = input("Login target (keycloak or tks): ")
@@ -93,9 +101,9 @@ if __name__ == "__main__":
         while USERNAME == "":
             USERNAME = input("Please enter your username: ")
 
-        PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+        PASSWORD = getpass.getpass("Please enter your password: ")
         while USERNAME == "":
-            PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+            PASSWORD = getpass.getpass("Please enter your password: ")
     else:
         SERVER_URL = input("Please enter the TKS URL: ")
         while SERVER_URL == "":
@@ -113,9 +121,9 @@ if __name__ == "__main__":
         while USERNAME == "":
             USERNAME = input("Please enter your username: ")
 
-        PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+        PASSWORD = getpass.getpass("Please enter your password: ")
         while USERNAME == "":
-            PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+            PASSWORD = getpass.getpass("Please enter your password: ")
 
     # Get the token and save it to a file
     try:

@@ -64,9 +64,9 @@ if __name__ == "__main__":
     while USERNAME == "":
         USERNAME = input("Please enter your username: ")
 
-    PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+    PASSWORD = getpass.getpass("Please enter your password: ")
     while USERNAME == "":
-        PASSWORD = getpass.getpass("비밀번호를 입력하세요: ")
+        PASSWORD = getpass.getpass("Please enter your password: ")
 
     if SERVER_URL[-1] == "/":
         SERVER_URL = SERVER_URL[:-1]
